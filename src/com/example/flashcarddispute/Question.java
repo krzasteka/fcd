@@ -7,18 +7,18 @@ package com.example.flashcarddispute;
      Description: The Question class will only return values except for the Explanation, the explanation
 	              will be able to be adjusted if the Teacher decides the explanation does not suffice.
  
+Refute structure - add a unique ID to each Question?
 **********************************************************************************************************/
 
 public class Question {
 	private String mQuestion;
 	private String[] mAnswers;
 	private boolean mMultipleChoice; // true/false question if mMultipleChoice = false
-	private String mExplanation;
-	// _________________ Refute Structure?
+	//private String mExplanation;
 	private int mCorrectAns;
 	private int length = 2;
 	
-	public Question(String question, String[] answers, boolean multipleChoice, String explanation, int correctAns){
+	public Question(String question, String[] answers, boolean multipleChoice, int correctAns){
 		if(answers.length < 2){                  // 
 			return;
 		}else if(multipleChoice == false){       // check if answer is true/false
@@ -32,13 +32,13 @@ public class Question {
 
 	}
 
-	public String getmExplanation() {
-		return mExplanation;
-	}
-
-	public void setmExplanation(String mExplanation) {
-		this.mExplanation = mExplanation;
-	}
+//	public String getmExplanation() {
+//		return mExplanation;
+//	}
+//
+//	public void setmExplanation(String mExplanation) {
+//		this.mExplanation = mExplanation;
+//	}
 
 	public String getmQuestion() {
 		return mQuestion;
