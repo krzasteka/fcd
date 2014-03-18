@@ -3,6 +3,7 @@
 
     <string name="app_name">Flash Card Dispute</string>
     <string name="action_settings">Settings</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="stackActivityTitle">Pick a subject:</string>
+    <string name="submit_button">Submit</string>
 
 </resources>
