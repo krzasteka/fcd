@@ -35,7 +35,7 @@ public class CardStackActivity extends ListActivity{
 		listView.addHeaderView(header);
 		listView.addFooterView(footer);
 		String[] myStringArray = new String[]{bioStack.getmTitle(), mathStack.getmTitle()};
-		ArrayAdapter adapter = new ArrayAdapter<String>(CardStackActivity.this, R.layout.activity_card_stack_list_item, myStringArray);
+		ArrayAdapter<String> adapter = new ArrayAdapter<String>(CardStackActivity.this, android.R.layout.simple_list_item_1, myStringArray);
 		listView.setAdapter(adapter);
 		
 	}
