@@ -1,5 +1,9 @@
 package com.example.flashcarddispute;
 
+import java.io.Serializable;
+
+
+
 /*********************************************************************************************************
      Author: Andrzej Krzastek
      Date: March 16th, 2014
@@ -9,8 +13,8 @@ package com.example.flashcarddispute;
  
 Refute structure - add a unique ID to each Question?
 **********************************************************************************************************/
-
-public class Question {
+@SuppressWarnings("serial")
+public class Question implements Serializable{
 	private String mQuestion;
 	private String[] mAnswers;
 	private boolean mMultipleChoice; // true/false question if mMultipleChoice = false

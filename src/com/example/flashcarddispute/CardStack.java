@@ -1,6 +1,9 @@
 package com.example.flashcarddispute;
 
-public class CardStack {
+import java.io.Serializable;
+
+@SuppressWarnings("serial")
+public class CardStack implements Serializable{
 	private String mTitle;
 	private Question[] mQuestions;
 	private int length = 0;

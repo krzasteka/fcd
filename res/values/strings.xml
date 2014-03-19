@@ -5,5 +5,8 @@
     <string name="action_settings">Settings</string>
     <string name="stackActivityTitle">Pick a subject:</string>
     <string name="submit_button">Submit</string>
+    <string name="question_sample">This is where the question goes, got it?</string>
+    <string name="title_activity_show_questions">ShowQuestionsActivity</string>
+    <string name="hello_world">Hello world!</string>
 
 </resources>
