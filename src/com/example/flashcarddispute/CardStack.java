@@ -31,4 +31,12 @@ public class CardStack implements Serializable{
 		this.mQuestions = mQuestions;
 	}
 	
+	public int length(){
+		return mQuestions.length;
+		
+	}
+	
+	public Question getQuestionAt(int pos){
+		return (Question) mQuestions[pos];
+	}
 }

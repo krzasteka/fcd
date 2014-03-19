@@ -6,6 +6,7 @@ import java.util.List;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -31,11 +32,15 @@ public class CardStackActivity extends ListActivity{
 	CardStack bioStack = new CardStack(bioCards, "Biology");
 	
 	CardStack[] currentStack = new CardStack[]{mathStack, bioStack};
-	
+	static final String TAG = "FCD";
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_card_stack);
+		String foo = oneBio.getmQuestion();
+		if(foo != null){
+			Log.i(TAG, foo);
+		}
 		/* Add the header for the cardStackActivity */
 		View header = getLayoutInflater().inflate(R.layout.activity_card_stack_header, null);
 		ListView listView = getListView();

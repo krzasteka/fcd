@@ -17,10 +17,18 @@ public class ShowQuestionsActivity extends Activity {
 		TextView tv = (TextView) findViewById(R.id.question);
 
 		tv.setText(currentCardStack.getmTitle());
+		//need to get data back out from serilized extras.... is the question[] serialized as well??
+//		Question[] stackQuestions = new Question[currentCardStack.length()];
+//		for(int i = 0; i < currentCardStack.length(); i++ ){
+//			stackQuestions[i] = (Question) currentCardStack.getQuestionAt(i);
+//		}
+//		
+//		Log.i(TAG, stackQuestions[0].getmQuestion());
+		Question[] stackQuestions = currentCardStack.getmQuestions();
+		int i = stackQuestions[1].getmCorrectAns();
 		
-		Question[] stackQuestions = currentCardStack.getmQuestions().clone();
-		Log.i(TAG, stackQuestions[0].getmQuestion());
-
+		Log.i(TAG, String.valueOf(i));
+		
 	}
 
 	@Override

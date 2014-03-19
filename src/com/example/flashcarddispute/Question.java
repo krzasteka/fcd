@@ -2,8 +2,6 @@ package com.example.flashcarddispute;
 
 import java.io.Serializable;
 
-
-
 /*********************************************************************************************************
      Author: Andrzej Krzastek
      Date: March 16th, 2014
@@ -33,7 +31,9 @@ public class Question implements Serializable{
 			this.mAnswers = new String[length];
 			mAnswers = answers;
 		}
-
+		this.mQuestion = question;
+		this.mMultipleChoice = multipleChoice;
+		this.mCorrectAns = correctAns;
 	}
 
 //	public String getmExplanation() {
