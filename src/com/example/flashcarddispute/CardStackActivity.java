@@ -17,17 +17,18 @@ public class CardStackActivity extends ListActivity{
 	
 	/* Eventually this will data will be grabbed from a JSON object */
 	static final boolean multipleChoice = true; 
-	Question oneMath = new Question("Question 1, Answer C", (new String[]{"This is A", "This is B", "This is C"}), multipleChoice, 3);
-	Question twoMath = new Question("Question 2, Answer B", (new String[]{"This is A", "This is B", "This is C"}), multipleChoice, 2);
-	Question threeMath = new Question("Question 3, Answer A", (new String[]{"This is A", "This is B", "This is C"}), multipleChoice, 1);
-	Question fourMath = new Question("Question 4, Answer is False", (new String[]{"This is True", "This is False"}), !multipleChoice, 2);
+	static final boolean hasMultipleAnswers = true;
+	Question oneMath = new Question("Question 1, Answer C", (new String[]{"This is A", "This is B", "This is C", "This is D", "This is E"}), multipleChoice, hasMultipleAnswers, 3);
+	Question twoMath = new Question("Question 2, Answer B", (new String[]{"This is A", "This is B", "This is C"}), multipleChoice, !hasMultipleAnswers, 2);
+	Question threeMath = new Question("Question 3, Answer A", (new String[]{"This is A", "This is B", "This is C","This is D", "This is E","This is F"}), multipleChoice, hasMultipleAnswers, 1);
+	Question fourMath = new Question("Question 4, Answer is False", (new String[]{"This is True", "This is False"}), !multipleChoice, !hasMultipleAnswers, 2);
 	Question[] mathCards = new Question[]{oneMath, twoMath, threeMath, fourMath};
 	CardStack mathStack = new CardStack(mathCards, "Math");
 	
-	Question oneBio = new Question("Question 1, Answer C", (new String[]{"This is A", "This is B", "This is C"}), multipleChoice, 3);
-	Question twoBio = new Question("Question 2, Answer B", (new String[]{"This is A", "This is B", "This is C"}), multipleChoice, 2);
-	Question threeBio = new Question("Question 3, Answer A", (new String[]{"This is A", "This is B", "This is C"}), multipleChoice, 1);
-	Question fourBio = new Question("Question 4, Answer is False", (new String[]{"This is True", "This is False"}), !multipleChoice, 2);
+	Question oneBio = new Question("Question 1, Answer C", (new String[]{"This is A", "This is B", "This is C", "This is D"}), multipleChoice, !hasMultipleAnswers, 3);
+	Question twoBio = new Question("Question 2, Answer B", (new String[]{"This is A", "This is B", "This is C", "This is D", "This is E"}), multipleChoice, hasMultipleAnswers, 2);
+	Question threeBio = new Question("Question 3, Answer A", (new String[]{"This is A", "This is B", "This is C"}), multipleChoice, !hasMultipleAnswers, 1);
+	Question fourBio = new Question("Question 4, Answer is False", (new String[]{"This is True", "This is False"}), !multipleChoice, !hasMultipleAnswers, 2);
 	Question[] bioCards = new Question[]{oneBio, twoBio, threeBio, fourBio};
 	CardStack bioStack = new CardStack(bioCards, "Biology");
 	
@@ -64,7 +65,7 @@ public class CardStackActivity extends ListActivity{
 	protected void onListItemClick(ListView l, View v, int position, long id){
 		super.onListItemClick(l, v, position, id);
 		Intent i = new Intent(CardStackActivity.this, ShowQuestionsActivity.class);
-		Toast.makeText(CardStackActivity.this, "position: " + position + " | id: "+ id, Toast.LENGTH_LONG).show(); //Debugging purposes
+		//Toast.makeText(CardStackActivity.this, "position: " + position + " | id: "+ id, Toast.LENGTH_LONG).show(); //Debugging purposes
 		Bundle cardBundle = new Bundle();
 		cardBundle.putSerializable("cardStack", currentStack[(int) id]); // we need to serialize the cardStack object to be able to send it as an Extra with the intent 
 		i.putExtras(cardBundle); 

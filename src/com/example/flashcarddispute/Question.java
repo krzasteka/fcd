@@ -16,33 +16,27 @@ public class Question implements Serializable{
 	private String mQuestion;
 	private String[] mAnswers;
 	private boolean mMultipleChoice; // true/false question if mMultipleChoice = false
-	//private String mExplanation;
+	private boolean mHasMultipleAnswers; //can the user choose more than one right answer?
 	private int mCorrectAns;
 	private int length = 2;
 	
-	public Question(String question, String[] answers, boolean multipleChoice, int correctAns){
-		if(answers.length < 2){                  // 
-			return;
+	public Question(String question, String[] answers, boolean multipleChoice, boolean hasMultipleAnswers, int correctAns){
+		this.mQuestion = question;
+		this.mMultipleChoice = multipleChoice;
+		this.mCorrectAns = correctAns;
+		this.mHasMultipleAnswers = hasMultipleAnswers;
+		if(answers.length < 2){                  
+			return;								 // need to throw an error
 		}else if(multipleChoice == false){       // check if answer is true/false
 			this.mAnswers = new String[length];  // initialize the length of mAnswers to 2
 			mAnswers = answers;
+			this.mHasMultipleAnswers = false;    // if it's a true false it can't have more than one right answer 
 		}else{
 			length = answers.length;             // set length to the length of the array being passed in
 			this.mAnswers = new String[length];
 			mAnswers = answers;
 		}
-		this.mQuestion = question;
-		this.mMultipleChoice = multipleChoice;
-		this.mCorrectAns = correctAns;
 	}
-
-//	public String getmExplanation() {
-//		return mExplanation;
-//	}
-//
-//	public void setmExplanation(String mExplanation) {
-//		this.mExplanation = mExplanation;
-//	}
 
 	public String getmQuestion() {
 		return mQuestion;
@@ -59,7 +53,9 @@ public class Question implements Serializable{
 	public int getmCorrectAns() {
 		return mCorrectAns;
 	}
-	
-	
+
+	public boolean hasMultipleAnswers() {
+		return mHasMultipleAnswers;
+	}
 		
 }

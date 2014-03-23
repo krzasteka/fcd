@@ -7,6 +7,10 @@
     <string name="submit_button">Submit</string>
     <string name="question_sample">This is where the question goes, got it?</string>
     <string name="title_activity_show_questions">ShowQuestionsActivity</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="button_previous">Previous</string>
+    <string name="button_submit_answer">Submit</string>
+    <string name="button_next">Next</string>
+    <string name="button_true">True</string>
+    <string name="button_false">False</string>
 
 </resources>
