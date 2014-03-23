@@ -40,7 +40,7 @@ public class CardStackActivity extends ListActivity{
 		setContentView(R.layout.activity_card_stack);
 		String foo = oneBio.getmQuestion();
 		if(foo != null){
-			Log.i(TAG, foo);
+			//Log.i(TAG, foo);
 		}
 		/* Add the header for the cardStackActivity */
 		View header = getLayoutInflater().inflate(R.layout.activity_card_stack_header, null);

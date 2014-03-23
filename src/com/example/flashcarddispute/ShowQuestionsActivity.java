@@ -21,7 +21,7 @@ public class ShowQuestionsActivity extends Activity {
 		 
 		final Button nextButton = (Button) findViewById(R.id.button_next);
 		final Button previousButton = (Button) findViewById(R.id.button_previous);
-		
+		final Button submitAnswerButton = (Button) findViewById(R.id.button_submit_answer);
 		/*Here we recieve the card stack sent from the CardStack Activity*/
 		
 		CardStack currentCardStack = (CardStack) getIntent().getSerializableExtra("cardStack");
@@ -30,13 +30,14 @@ public class ShowQuestionsActivity extends Activity {
 		
 		final Question[] questionStack = currentCardStack.getmQuestions();
 		updateQuestion(questionStack, (currentQuestion));
- 		
+ 	
+		/*Next button*/
 		nextButton.setOnClickListener(new View.OnClickListener(){
 
 			@Override
 			public void onClick(View v) {
 				
-				Log.i(TAG, String.valueOf(currentQuestion));
+				//Log.i(TAG, String.valueOf(currentQuestion));
 				if(currentQuestion == (questionStack.length)-1){
 					currentQuestion = 0;
 					updateQuestion(questionStack, (currentQuestion));
@@ -48,24 +49,37 @@ public class ShowQuestionsActivity extends Activity {
 			}
  			
  		});
+		/*Previous Button*/
 		previousButton.setOnClickListener(new View.OnClickListener(){
 
 			@Override
 			public void onClick(View v) {
-				Log.i(TAG, String.valueOf(currentQuestion));
+				//Log.i(TAG, String.valueOf(currentQuestion));
 				if(currentQuestion == 0){
-					Log.i(TAG, "set stack to last position");
+					//Log.i(TAG, "set stack to last position");
 					currentQuestion = (questionStack.length)-1;
 					updateQuestion(questionStack, (currentQuestion));
 				}
 				else
 				{
-					Log.i(TAG, "Keep decrementing stack");
+					//Log.i(TAG, "Keep decrementing stack");
 					updateQuestion(questionStack, (currentQuestion -= 1));
 				}
 			}
  			
  		});
+		/*Submit Asnwer Button*/
+		submitAnswerButton.setOnClickListener(new View.OnClickListener(){
+
+			@Override
+			public void onClick(View v) {
+				RadioGroup groupTrueFalse = (RadioGroup) findViewById(R.id.group_answers); 
+				int selectedAnswer = groupTrueFalse.getCheckedRadioButtonId();
+				Log.i(TAG, String.valueOf(selectedAnswer));
+			}
+ 			
+ 		});
+			
 	}
 	
 	
@@ -85,12 +99,12 @@ public class ShowQuestionsActivity extends Activity {
  		/* Get all the answer choices for the current question */
  		String[] answers = questionStack[currentQuestion].getmAnswers();
  		 
- 		if(questionStack[currentQuestion].ismMultipleChoice()){
+ 		if(questionStack[currentQuestion].ismMultipleChoice() || !(questionStack[currentQuestion].ismMultipleChoice())){
  			/* This adds ture_false_group.xml to the activity_show_questions.xml's Layout
  			specifically this takes the xml from true_false_group.xml and adds it into
  			the element with id: answer_choices (a LinearLayout) */
  			LinearLayout answerChoices = (LinearLayout) findViewById(R.id.answer_choices);  // find the answer_choices element and assign it to a variable
- 			View trueFalse = getLayoutInflater().inflate(R.layout.true_false_group, null);  // make ture_false_group.xml into a view that Android Java can use 
+ 			View trueFalse = getLayoutInflater().inflate(R.layout.radio_group, null);  // make ture_false_group.xml into a view that Android Java can use 
  			answerChoices.addView(trueFalse);  // add true_false_group.xml inside of the answer_choices element
  			
  			/* Here we add buttons to the element with id: group_answers. group_answers currently
@@ -105,13 +119,16 @@ public class ShowQuestionsActivity extends Activity {
  			 * answers from previous questions we call the removeAllViews() method on the RadioGroup to which we are adding
  			 * answers (Radio Buttons) to from the new question. */
  			groupTrueFalse.removeAllViews();
+ 			
  			for(int i = 0; i < answers.length; i++){
  				// for every answer in the Question mAnswers string array add a new button which coincides with the text, i.e. an answer choice
 	 			RadioButton button;
 	 			button = new RadioButton(this);
 	 			button.setText(answers[i]);
+	 			button.setId(i);
 	 			groupTrueFalse.addView(button);
  			}
+ 			
  		}
 	}
 }
