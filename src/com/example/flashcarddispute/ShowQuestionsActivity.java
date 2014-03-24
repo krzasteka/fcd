@@ -1,6 +1,7 @@
 package com.example.flashcarddispute;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -75,7 +76,12 @@ public class ShowQuestionsActivity extends Activity {
 			public void onClick(View v) {
 				RadioGroup groupTrueFalse = (RadioGroup) findViewById(R.id.group_answers); 
 				int selectedAnswer = groupTrueFalse.getCheckedRadioButtonId();
-				Log.i(TAG, String.valueOf(selectedAnswer));
+				Intent checkAnswer = new Intent(ShowQuestionsActivity.this, CheckAnswersActivity.class);
+				Bundle qna = new Bundle();
+				qna.putSerializable("question", questionStack[currentQuestion]);
+				qna.putInt("answer", selectedAnswer);
+				checkAnswer.putExtras(qna);
+				startActivity(checkAnswer);
 			}
  			
  		});
@@ -125,7 +131,7 @@ public class ShowQuestionsActivity extends Activity {
 	 			RadioButton button;
 	 			button = new RadioButton(this);
 	 			button.setText(answers[i]);
-	 			button.setId(i);
+	 			button.setId(i);   // to prevent the OS from incrementing buttons' ID from 0-n 
 	 			groupTrueFalse.addView(button);
  			}
  			

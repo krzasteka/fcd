@@ -26,6 +26,10 @@
             android:name="com.example.flashcarddispute.ShowQuestionsActivity"
             android:label="@string/title_activity_show_questions" >
         </activity>
+        <activity
+            android:name="com.example.flashcarddispute.CheckAnswersActivity"
+            android:label="@string/title_activity_check_answers" >
+        </activity>
     </application>
 
 </manifest>

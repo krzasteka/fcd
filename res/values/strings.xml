@@ -12,5 +12,7 @@
     <string name="button_next">Next</string>
     <string name="button_true">True</string>
     <string name="button_false">False</string>
+    <string name="title_activity_check_answers">CheckAnswersActivity</string>
+    <string name="button_refute">Refute!</string>
 
 </resources>
