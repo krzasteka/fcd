@@ -14,5 +14,15 @@
     <string name="button_false">False</string>
     <string name="title_activity_check_answers">CheckAnswersActivity</string>
     <string name="button_refute">Refute!</string>
-
+    <string name="done_string">Done:</string>
+    <string name="date_string">Date:</string>
+    <string name="add_new_refute_item_string">Refute</string>
+    <string name="title_string">Refute Content</string>
+    <string name="time_and_date_string">Time and Date</string>
+    <string name="no_date_set_string">0000-00-00</string>
+    <string name="no_time_set_string">00:00:00</string>
+    <string name="cancel_string">Cancel</string>
+    <string name="reset_string">Reset</string>
+    <string name="submit_string">Submit</string>
+    <string name="enter_title_string">Enter Refute</string>
 </resources>

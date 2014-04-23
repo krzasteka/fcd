@@ -18,7 +18,6 @@ public class CardStackActivity extends ListActivity{
 	/* Eventually this will data will be grabbed from a JSON object */
 	static final boolean multipleChoice = true; 
 	static final boolean hasMultipleAnswers = true;
-	//This is just a comment
 	Question oneMath = new Question("Question 1, Answer C", (new String[]{"This is A", "This is B", "This is C", "This is D", "This is E"}), multipleChoice, hasMultipleAnswers, 2);
 	Question twoMath = new Question("Question 2, Answer B", (new String[]{"This is A", "This is B", "This is C"}), multipleChoice, !hasMultipleAnswers, 1);
 	Question threeMath = new Question("Question 3, Answer A", (new String[]{"This is A", "This is B", "This is C","This is D", "This is E","This is F"}), multipleChoice, hasMultipleAnswers, 0);

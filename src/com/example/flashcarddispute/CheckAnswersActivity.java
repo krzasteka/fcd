@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -18,6 +19,7 @@ public class CheckAnswersActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_check_answers);
+		Button refuteButton = (Button) findViewById(R.id.button_refute);
 		
 		/*Here we recieve the question sent from the ShowQuestions Activity*/
 		Intent answerIntent = getIntent();
@@ -27,19 +29,16 @@ public class CheckAnswersActivity extends Activity {
 		Log.i(TAG, question.getmQuestion());
 		Log.i(TAG, String.valueOf(answer));
 		updateQuestion(question, answer);
-		/*Refute Button
 		
-		submitAnswerButton.setOnClickListener(new View.OnClickListener(){
+		
+		refuteButton.setOnClickListener(new View.OnClickListener(){
 
 			@Override
 			public void onClick(View v) {
-				RadioGroup groupTrueFalse = (RadioGroup) findViewById(R.id.group_answers); 
-				int selectedAnswer = groupTrueFalse.getCheckedRadioButtonId();
-				Log.i(TAG, String.valueOf(selectedAnswer));
+				Intent refuteIntent = new Intent(CheckAnswersActivity.this, ToDoManagerActivity.class);
+				startActivity(refuteIntent);
 			}
- 			
- 		}); */
-			
+ 		});
 	}
 	
 	
