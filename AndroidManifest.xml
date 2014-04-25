@@ -30,6 +30,17 @@
             android:name="com.example.flashcarddispute.CheckAnswersActivity"
             android:label="@string/title_activity_check_answers" >
         </activity>
+        <activity
+            android:name=".ToDoManagerActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".AddToDoActivity" >
+        </activity>
     </application>
 
 </manifest>
