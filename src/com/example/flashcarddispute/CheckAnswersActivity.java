@@ -21,10 +21,10 @@ public class CheckAnswersActivity extends Activity {
 		setContentView(R.layout.activity_check_answers);
 		Button refuteButton = (Button) findViewById(R.id.button_refute);
 		
-		/*Here we recieve the question sent from the ShowQuestions Activity*/
+		/*Here we receive the question sent from the ShowQuestions Activity*/
 		Intent answerIntent = getIntent();
 		
-		Question question = (Question) answerIntent.getSerializableExtra("question");
+		final Question question = (Question) answerIntent.getSerializableExtra("question");
 		int answer = answerIntent.getIntExtra("answer", 0);
 		Log.i(TAG, question.getmQuestion());
 		Log.i(TAG, String.valueOf(answer));
@@ -35,7 +35,9 @@ public class CheckAnswersActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				Intent refuteIntent = new Intent(CheckAnswersActivity.this, ToDoManagerActivity.class);
+				
+				Intent refuteIntent = new Intent(CheckAnswersActivity.this, Refute.class);
+				refuteIntent.putExtra("question", question);
 				startActivity(refuteIntent);
 			}
  		});

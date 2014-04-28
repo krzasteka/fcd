@@ -1,6 +1,7 @@
 package com.example.flashcarddispute;
 
 import java.io.Serializable;
+import java.util.concurrent.atomic.AtomicLong;
 
 /*********************************************************************************************************
      Author: Andrzej Krzastek
@@ -19,7 +20,10 @@ public class Question implements Serializable{
 	private boolean mHasMultipleAnswers; //can the user choose more than one right answer?
 	private int mCorrectAns;
 	private int length = 2;
-	
+	/**** CREATE UNIQUE ID FOR EVERY QUESTION *******/
+    static final AtomicLong NEXT_ID = new AtomicLong(0);
+    final long id = NEXT_ID.getAndIncrement();
+    
 	public Question(String question, String[] answers, boolean multipleChoice, boolean hasMultipleAnswers, int correctAns){
 		this.mQuestion = question;
 		this.mMultipleChoice = multipleChoice;
@@ -38,6 +42,10 @@ public class Question implements Serializable{
 		}
 	}
 
+	public long getId() {
+	    return id;
+	}
+	
 	public String getmQuestion() {
 		return mQuestion;
 	}
